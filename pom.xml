@@ -22,6 +22,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<!-- jGitFlow -->
+		<jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
+		<!-- Used for Nexus Upload -->
+		<wagon-webdav-jackrabbit.version>2.4</wagon-webdav-jackrabbit.version>
+
 	</properties>
 
 	<dependencies>
@@ -49,13 +54,104 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}-${project.version}</finalName>
+		<!-- Used for Nexus Upload -->
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>${wagon-webdav-jackrabbit.version}</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Git information -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+			</plugin>
+			<!-- jGitFlow -->
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>${jgitflow-maven-plugin.version}</version>
+				<configuration>
+					<!--Keep maven sub modules in same version as parent-->
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<pushFeatures>true</pushFeatures>
+					<pushReleases>true</pushReleases>
+					<pushHotfixes>true</pushHotfixes>
+					<suppressFastForward>true</suppressFastForward>
+					<scmCommentPrefix>jgf:</scmCommentPrefix>
+					<!--enforce line ending-->
+					<eol>lf</eol>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
+
+	<!-- Profiles -->
+	<profiles>
+		<!--  release-dry-run-->
+		<profile>
+			<id>release-dry-run</id>
+			<!--Deploy artifacts to nexus PRE-PROD-->
+			<distributionManagement>
+				<snapshotRepository>
+					<id>snapshots</id>
+					<name>Helsana Snapshots auf Alma Entw.</name>
+					<url>http://alma-artifact-entw.hel.kko.ch/nexus/repository/snapshots/</url>
+					<!--<url>http://alma-artifact-entw.hel.kko.ch/nexus/content/repositories/snapshots/</url>-->
+				</snapshotRepository>
+
+				<repository>
+					<id>releases</id>
+					<name>Helsana Releases auf Alma Entw.</name>
+					<url>http://alma-artifact-entw.hel.kko.ch/nexus/repository/releases/</url>
+					<!--<url>http://alma-artifact-entw.hel.kko.ch/nexus/content/repositories/releases/</url>-->
+				</repository>
+			</distributionManagement>
+
+			<!--Perform release without tagging origin/master-->
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>external.atlassian.jgitflow</groupId>
+						<artifactId>jgitflow-maven-plugin</artifactId>
+						<version>${jgitflow-maven-plugin.version}</version>
+						<configuration>
+							<!--do not push release branch -->
+							<pushReleases>false</pushReleases>
+							<pushHotfixes>false</pushHotfixes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- release -->
+		<profile>
+			<id>release</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<!-- Distribution -->
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<url>dav:http://alma-artifact/nexus/content/repositories/releases/</url>
+				</repository>
+				<snapshotRepository>
+					<uniqueVersion>false</uniqueVersion>
+					<id>snapshots</id>
+					<url>dav:http://alma-artifact/nexus/content/repositories/snapshots/</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 
 </project>
