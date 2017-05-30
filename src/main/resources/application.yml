@@ -19,16 +19,8 @@ management:
      git:
        mode: full
 
-# Management
-management:
-  address: ${server.address}
-  port: ${server.port}
-  context-path: /manage
-  info:
-     git:
-       mode: full
-
 server:
   port: 8081
   context-path: /spring-boot-admin
+  address: localhost
 
