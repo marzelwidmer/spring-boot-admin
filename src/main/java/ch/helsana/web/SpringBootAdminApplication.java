@@ -1,4 +1,4 @@
-package ch.helsana;
+package ch.helsana.web;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;

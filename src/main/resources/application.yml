@@ -1,0 +1,26 @@
+# Infos Build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+# Logging
+logging:
+  path: /srv/spring-boot-admin/log/
+
+# Management
+management:
+  address: ${server.address}
+  port: ${server.port}
+  context-path: /manage
+  info:
+     git:
+       mode: full
+
+server:
+  port: 8081
+  context-path: /spring-boot-admin
+  address: localhost
+
