@@ -24,3 +24,7 @@ server:
   context-path: /spring-boot-admin
   address: localhost
 
+security:
+  user:
+    password: Welcome1_
+
