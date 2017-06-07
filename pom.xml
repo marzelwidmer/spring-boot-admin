@@ -4,7 +4,7 @@
 
 	<groupId>ch.helsana.web</groupId>
 	<artifactId>spring-boot-admin</artifactId>
-	<version>0.0.7</version>
+	<version>0.0.8</version>
 	<packaging>jar</packaging>
 
 	<name>spring-boot-admin</name>
@@ -26,6 +26,8 @@
 		<!-- Used for Nexus Upload -->
 		<wagon-webdav-jackrabbit.version>2.4</wagon-webdav-jackrabbit.version>
 
+		<spring-boot-admin-server.version>1.5.0</spring-boot-admin-server.version>
+		<spring-boot-admin-server-ui.version>1.5.0</spring-boot-admin-server-ui.version>
 	</properties>
 
 	<dependencies>
@@ -37,12 +39,17 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server</artifactId>
-			<version>1.5.0</version>
+			<version>${spring-boot-admin-server.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server-ui</artifactId>
-			<version>1.5.0</version>
+			<version>${spring-boot-admin-server-ui.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<dependency>
