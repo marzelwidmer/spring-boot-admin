@@ -4,7 +4,7 @@
 
 	<groupId>ch.helsana.web</groupId>
 	<artifactId>spring-boot-admin</artifactId>
-	<version>0.0.9-SNAPSHOT</version>
+	<version>0.0.8</version>
 	<packaging>jar</packaging>
 
 	<name>spring-boot-admin</name>
