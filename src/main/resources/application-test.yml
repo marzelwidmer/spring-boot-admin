@@ -1,5 +1,5 @@
 server:
-  address: 10.130.208.186
+  address: 10.130.208.238
 logging:
   path: /srv/spring-boot-admin/log/
 
