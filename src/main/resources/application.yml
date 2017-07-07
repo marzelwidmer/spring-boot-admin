@@ -26,5 +26,25 @@ server:
 
 security:
   user:
+    name: user
     password: Welcome1_
 
+# needs to be set on server (e.g. in file /srv/clearview-test/conf/application-test.properties)
+# or by using config server
+#spring:
+#  cloud:
+#    discovery:
+#      client:
+#        simple:
+#          instances:
+#            prod[0]:
+#              uri: http://localhost:8080/offer-ug
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
