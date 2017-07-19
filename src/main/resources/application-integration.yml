@@ -1,4 +1,4 @@
 server:
   address: 10.130.208.185
 logging:
-  path: /srv/spring-boot-admin-int03/log/
+  path: /srv/spring-boot-admin-integration/log/

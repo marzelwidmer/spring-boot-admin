@@ -1,19 +1,5 @@
 server:
   address: 10.130.208.186
 logging:
-  path: /srv/spring-boot-admin-test03/log/
+  path: /srv/spring-boot-admin-test/log/
 
-
-
-### Entwicklung
-### easysales-entw.hel.kko.ch
-#server.address=10.130.208.112
-# Logging
-#logging.path=/srv/spring-boot-admin-enwt/log/
-
-
-### Entwicklung
-### easysales-entw02.hel.kko.ch
-#server.address=10.130.208.110
-# Logging
-#logging.path=/srv/spring-boot-admin-entw02/log/

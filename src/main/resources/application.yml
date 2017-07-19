@@ -1,3 +1,7 @@
+spring:
+  profiles:
+    active: local
+
 # Infos Build
 info:
   build:
@@ -28,23 +32,22 @@ security:
   user:
     name: user
     password: Welcome1_
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
 
-# needs to be set on server (e.g. in file /srv/clearview-test/conf/application-test.properties)
-# or by using config server
+#needs to be set on server (e.g. in file /srv/myhelsana-test/conf/application-test.properties) or by using config server
 #spring:
 #  cloud:
 #    discovery:
 #      client:
 #        simple:
 #          instances:
-#            prod[0]:
-#              uri: http://localhost:8080/offer-ug
+#            myhelsana-api-gateway[0]:
+#              uri: http://localhost:8080/manage/
 #              metadata:
 #                user:
 #                  name: user
 #                  password: Welcome1_
-  boot:
-    admin:
-      discovery:
-        converter:
-          management-context-path: /manage

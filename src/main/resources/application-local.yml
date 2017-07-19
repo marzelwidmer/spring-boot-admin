@@ -1,3 +1,16 @@
 # Logging
 logging:
   path: log/
+
+#spring:
+#  cloud:
+#    discovery:
+#      client:
+#        simple:
+#          instances:
+#            myhelsana-api-gateway[0]:
+#              uri: http://localhost:8080/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
