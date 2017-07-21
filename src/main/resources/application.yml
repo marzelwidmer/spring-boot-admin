@@ -1,7 +1,35 @@
 spring:
   profiles:
     active: local
-
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            myhelsana-api-gateway[0]:
+              uri: http://localhost:8080/manage/
+              metadata:
+                user:
+                  name: user
+                  password: Welcome1_
+            partner-service[1]:
+              uri: http://localhost:9060/manage/
+              metadata:
+                user:
+                  name: user
+                  password: Welcome1_
+            config-server[2]:
+              uri: http://localhost:8888/manage/
+              metadata:
+                user:
+                  name: user
+                  password: Welcome1_
+            eureka-server[3]:
+              uri: http://localhost:8761/manage/
+              metadata:
+                user:
+                  name: user
+                  password: Welcome1_
 # Infos Build
 info:
   build:
@@ -38,16 +66,3 @@ security:
         converter:
           management-context-path: /manage
 
-#needs to be set on server (e.g. in file /srv/myhelsana-test/conf/application-test.properties) or by using config server
-#spring:
-#  cloud:
-#    discovery:
-#      client:
-#        simple:
-#          instances:
-#            myhelsana-api-gateway[0]:
-#              uri: http://localhost:8080/manage/
-#              metadata:
-#                user:
-#                  name: user
-#                  password: Welcome1_
