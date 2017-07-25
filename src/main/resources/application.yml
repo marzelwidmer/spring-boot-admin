@@ -1,35 +1,18 @@
+# Spring
 spring:
   profiles:
     active: local
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+  application:
+    name: @project.name@
   cloud:
-    discovery:
-      client:
-        simple:
-          instances:
-            myhelsana-api-gateway[0]:
-              uri: http://localhost:8080/manage/
-              metadata:
-                user:
-                  name: user
-                  password: Welcome1_
-            partner-service[1]:
-              uri: http://localhost:9060/manage/
-              metadata:
-                user:
-                  name: user
-                  password: Welcome1_
-            config-server[2]:
-              uri: http://localhost:8888/manage/
-              metadata:
-                user:
-                  name: user
-                  password: Welcome1_
-            eureka-server[3]:
-              uri: http://localhost:8761/manage/
-              metadata:
-                user:
-                  name: user
-                  password: Welcome1_
+    config:
+      label: @project.name@
+      uri: http://${server.address}:8888
+
 # Infos Build
 info:
   build:
@@ -59,10 +42,50 @@ server:
 security:
   user:
     name: user
-    password: Welcome1_
+    password: '{cipher}a5fe485e00686aace88afb8508ee7e7269591629557e975babaee170bf078350'
   boot:
     admin:
       discovery:
         converter:
           management-context-path: /manage
+
+
+#spring:
+#  cloud:
+#    config:
+#      label: @project.name@
+#        uri: http://${server.address}:8888
+#
+
+
+#spring:
+#  cloud:
+#    discovery:
+#      client:
+#        simple:
+#          instances:
+#            myhelsana-api-gateway[0]:
+#              uri: http://localhost:8080/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            partner-service[1]:
+#              uri: http://localhost:9060/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            config-server[2]:
+#              uri: http://localhost:8888/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            eureka-server[3]:
+#              uri: http://localhost:8761/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
 
