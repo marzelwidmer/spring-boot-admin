@@ -1,4 +1,4 @@
-package ch.helsana.web;
+package ch.helsana.web.microservice.admin;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
 import de.codecentric.boot.admin.discovery.ApplicationDiscoveryListener;
