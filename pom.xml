@@ -28,6 +28,7 @@
 
 		<spring-boot-admin-server.version>1.5.0</spring-boot-admin-server.version>
 		<spring-boot-admin-server-ui.version>1.5.0</spring-boot-admin-server-ui.version>
+		<spring-cloud-commons.version>1.2.2.RELEASE</spring-cloud-commons.version>
 	</properties>
 
 	<dependencies>
@@ -60,7 +61,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-commons</artifactId>
-			<version>1.2.2.RELEASE</version>
+			<version>${spring-cloud-commons.version}</version>
 		</dependency>
 
 		<dependency>
@@ -171,4 +172,16 @@
 		</profile>
 	</profiles>
 
+	<!-- SpringCloud -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

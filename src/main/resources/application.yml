@@ -12,6 +12,7 @@ spring:
     config:
       label: @project.name@
       uri: http://${server.address}:8888
+      username: user
 
 # Infos Build
 info:
@@ -41,21 +42,12 @@ server:
 
 security:
   user:
-    name: user
-    password: '{cipher}a5fe485e00686aace88afb8508ee7e7269591629557e975babaee170bf078350'
+    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
   boot:
     admin:
       discovery:
         converter:
           management-context-path: /manage
-
-
-#spring:
-#  cloud:
-#    config:
-#      label: @project.name@
-#        uri: http://${server.address}:8888
-#
 
 
 #spring:
