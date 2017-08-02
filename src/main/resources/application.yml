@@ -13,6 +13,7 @@ spring:
       label: @project.name@
       uri: http://${server.address}:8888
       username: user
+      password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
 
 # Infos Build
 info:
