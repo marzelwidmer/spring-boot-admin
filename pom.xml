@@ -29,19 +29,10 @@
 		<spring-boot-admin-server.version>1.5.0</spring-boot-admin-server.version>
 		<spring-boot-admin-server-ui.version>1.5.0</spring-boot-admin-server-ui.version>
 		<spring-cloud-commons.version>1.2.2.RELEASE</spring-cloud-commons.version>
+		<spring-cloud.version>Dalston.SR2</spring-cloud.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<!-- spring cloud -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server</artifactId>
@@ -52,18 +43,26 @@
 			<artifactId>spring-boot-admin-server-ui</artifactId>
 			<version>${spring-boot-admin-server-ui.version}</version>
 		</dependency>
+		<!-- spring cloud -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-commons</artifactId>
+			<version>${spring-cloud-commons.version}</version>
+		</dependency>
 
+		<!-- spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-commons</artifactId>
-			<version>1.2.2.RELEASE</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -123,14 +122,11 @@
 					<id>snapshots</id>
 					<name>Helsana Snapshots auf Alma Entw.</name>
 					<url>http://alma-artifact-entw.hel.kko.ch/nexus/repository/snapshots/</url>
-					<!--<url>http://alma-artifact-entw.hel.kko.ch/nexus/content/repositories/snapshots/</url>-->
 				</snapshotRepository>
-
 				<repository>
 					<id>releases</id>
 					<name>Helsana Releases auf Alma Entw.</name>
 					<url>http://alma-artifact-entw.hel.kko.ch/nexus/repository/releases/</url>
-					<!--<url>http://alma-artifact-entw.hel.kko.ch/nexus/content/repositories/releases/</url>-->
 				</repository>
 			</distributionManagement>
 
@@ -177,7 +173,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Dalston.SR1</version>
+				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
