@@ -1,0 +1,84 @@
+# Spring
+spring:
+  profiles:
+    active: local
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+  application:
+    name: @project.name@
+  cloud:
+    config:
+      label: @project.name@
+      uri: http://${server.address}:8888
+      username: user
+      password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
+
+# Infos Build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+# Logging
+logging:
+  path: /srv/spring-boot-admin/log/
+
+# Management
+management:
+  address: ${server.address}
+  port: ${server.port}
+  context-path: /manage
+  info:
+     git:
+       mode: full
+
+server:
+  port: 8081
+  context-path: /spring-boot-admin
+  address: localhost
+
+security:
+  user:
+    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
+
+
+#spring:
+#  cloud:
+#    discovery:
+#      client:
+#        simple:
+#          instances:
+#            myhelsana-api-gateway[0]:
+#              uri: http://localhost:8080/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            partner-service[1]:
+#              uri: http://localhost:9060/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            config-server[2]:
+#              uri: http://localhost:8888/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+#            eureka-server[3]:
+#              uri: http://localhost:8761/manage/
+#              metadata:
+#                user:
+#                  name: user
+#                  password: Welcome1_
+
