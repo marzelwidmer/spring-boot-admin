@@ -15,13 +15,13 @@ import javax.annotation.PostConstruct;
 @EnableAutoConfiguration
 @EnableAdminServer
 @EnableGlobalAuthentication
-public class SpringBootAdminServer {
+public class SpringBootAdmin {
 
 	@Autowired
 	private ApplicationDiscoveryListener listener;
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAdminServer.class, args);
+		SpringApplication.run(SpringBootAdmin.class, args);
 	}
 
 	@PostConstruct
