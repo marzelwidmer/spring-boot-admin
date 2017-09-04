@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.event.InstanceRegisteredEvent;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 
@@ -15,6 +16,7 @@ import javax.annotation.PostConstruct;
 @EnableAutoConfiguration
 @EnableAdminServer
 @EnableGlobalAuthentication
+@EnableEurekaClient
 public class SpringBootAdmin {
 
 	@Autowired
