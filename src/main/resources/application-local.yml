@@ -1,5 +1,4 @@
-server:
-  address: ws-12000019196.hel.kko.ch
+# VM argument -Dserver.address=ws-12000019196.hel.kko.ch
 logging:
   path: log/
 eureka:
