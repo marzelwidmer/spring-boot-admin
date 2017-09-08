@@ -1,17 +1,16 @@
+#Server
 server:
   port: 8081
   context-path: /spring-boot-admin
   address: localhost
-
 #Eureka
 eureka:
   client:
     serviceUrl:
       defaultZone: http://${server.address}:8761/eureka/
   instance:
-    statusPageUrlPath: ${management.contextPath}/info
-    healthCheckUrlPath: ${management.contextPath}/health
-
+    statusPageUrlPath: /manage/info
+    healthCheckUrlPath: /manage/health
 # Spring
 spring:
   profiles:
@@ -25,22 +24,25 @@ spring:
   cloud:
     config:
       label: @project.name@
-      uri: http://${server.address}:8888
+      discovery:
+        enabled: true
+        service-id: config-server
       username: user
       password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
-
-# Infos Build
+  boot:
+    admin:
+      discovery:
+        ignored-services: spring-boot-admin
+# Infos
 info:
   build:
     artifact: @project.artifactId@
     name: @project.name@
     description: @project.description@
     version: @project.version@
-
 # Logging
 logging:
-  path: /srv/spring-boot-admin/log/
-
+  path: logs/
 # Management
 management:
   address: ${server.address}
@@ -49,7 +51,7 @@ management:
   info:
      git:
        mode: full
-
+# Security
 security:
   user:
     password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
