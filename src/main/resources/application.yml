@@ -1,16 +1,3 @@
-#Server
-server:
-  port: 8081
-  context-path: /spring-boot-admin
-  address: localhost
-#Eureka
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://${server.address}:8761/eureka/
-  instance:
-    statusPageUrlPath: /manage/info
-    healthCheckUrlPath: /manage/health
 # Spring
 spring:
   profiles:
@@ -33,6 +20,36 @@ spring:
     admin:
       discovery:
         ignored-services: spring-boot-admin
+        enabled: true
+        converter:
+          health-endpoint-path: /manage
+          management-context-path: /mange
+# Security
+security:
+  user:
+    username: user
+    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
+#Server
+server:
+  port: 0
+  context-path: /
+  address: localhost
+# Logging
+logging:
+  path: logs/
+# Management
+management:
+  context-path: /manage
+  info:
+     git:
+       mode: full
+  security:
+    enabled: false
 # Infos
 info:
   build:
@@ -40,23 +57,16 @@ info:
     name: @project.name@
     description: @project.description@
     version: @project.version@
-# Logging
-logging:
-  path: logs/
-# Management
-management:
-  address: ${server.address}
-  port: ${server.port}
-  context-path: /manage
-  info:
-     git:
-       mode: full
-# Security
-security:
-  user:
-    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
-  boot:
-    admin:
-      discovery:
-        converter:
-          management-context-path: /manage
+# Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/
+  instance:
+    statusPageUrlPath: /manage/info
+    healthCheckUrlPath: /manage/health
+    hostname: ${server.address}
+    prefer-ip-address: false
+
+
+
