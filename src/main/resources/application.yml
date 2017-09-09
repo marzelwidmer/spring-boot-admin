@@ -50,6 +50,19 @@ management:
        mode: full
   security:
     enabled: false
+# Endpoints
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+  logfile:
+    sensitive: false
+  security:
+    enabled: true
 # Infos
 info:
   build:
