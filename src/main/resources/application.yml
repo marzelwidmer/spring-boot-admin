@@ -36,7 +36,7 @@ security:
           management-context-path: /manage
 #Server
 server:
-  port: 0
+  port: 8763
   context-path: /
   address: localhost
 # Logging
