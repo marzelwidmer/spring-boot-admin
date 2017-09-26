@@ -1,2 +1,12 @@
 encrypt:
   key: 2224c9b0294f4f429dba92fb92eb75d6
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/
+  instance:
+    statusPageUrlPath: /manage/info
+    healthCheckUrlPath: /manage/health
+    hostname: ${SERVER_NAME:localhost}
+    prefer-ip-address: false

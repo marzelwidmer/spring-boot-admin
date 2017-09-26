@@ -70,16 +70,7 @@ info:
     name: @project.name@
     description: @project.description@
     version: @project.version@
-# Eureka
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/
-  instance:
-    statusPageUrlPath: /manage/info
-    healthCheckUrlPath: /manage/health
-    hostname: ${server.address}
-    prefer-ip-address: false
+
 
 
 
