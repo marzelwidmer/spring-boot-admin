@@ -23,7 +23,7 @@ spring:
         enabled: true
         converter:
           health-endpoint-path: /manage
-          management-context-path: /mange
+          management-context-path: /manage
 # Security
 security:
   user:
