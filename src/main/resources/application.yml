@@ -24,6 +24,9 @@ spring:
         converter:
           health-endpoint-path: /manage
           management-context-path: /manage
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+
 # Security
 security:
   user:
@@ -70,7 +73,3 @@ info:
     name: @project.name@
     description: @project.description@
     version: @project.version@
-
-
-
-
