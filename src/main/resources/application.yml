@@ -26,6 +26,20 @@ spring:
           management-context-path: /manage
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+  sleuth:
+    enabled: true
+    sampler:
+      percentage: 1.0
+  zipkin:
+    compression:
+      enabled: true
+    locator:
+      discovery:
+        enabled: true
+    flush-interval: 1
+    service:
+      name: @project.name@
+    base-url: http://${server.address}:9411/
 
 # Security
 security:
