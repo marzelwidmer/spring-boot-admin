@@ -1,0 +1,89 @@
+# Spring
+spring:
+  profiles:
+    active: local
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+  application:
+    name: @project.name@
+  cloud:
+    config:
+      label: @project.name@
+      discovery:
+        enabled: true
+        service-id: config-server
+      username: user
+      password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
+  boot:
+    admin:
+      discovery:
+        ignored-services: spring-boot-admin
+        enabled: true
+        converter:
+          health-endpoint-path: /manage
+          management-context-path: /manage
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+  sleuth:
+    enabled: true
+    sampler:
+      percentage: 1.0
+  zipkin:
+    compression:
+      enabled: true
+    locator:
+      discovery:
+        enabled: true
+    flush-interval: 1
+    service:
+      name: @project.name@
+    base-url: http://${server.address}:9411/
+
+# Security
+security:
+  user:
+    username: user
+    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
+#Server
+server:
+  port: 8763
+  context-path: /
+  address: localhost
+# Logging
+logging:
+  path: log/
+# Management
+management:
+  context-path: /manage
+  info:
+     git:
+       mode: full
+  security:
+    enabled: false
+# Endpoints
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+  logfile:
+    sensitive: false
+  security:
+    enabled: true
+# Infos
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
