@@ -1,1 +1,3 @@
-# VM argument -Dserver.address=ws-12000019196.hel.kko.ch
+spring:      
+  zipkin:
+    enabled: false
