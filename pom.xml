@@ -311,6 +311,7 @@
 				</plugins>
 			</build>
 		</profile>
+
 		<!--  release-dry-run-->
 		<profile>
 			<id>release-dry-run</id>
