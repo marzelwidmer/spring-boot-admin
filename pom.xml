@@ -97,6 +97,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-actuator</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -196,14 +200,14 @@
 						<version>${gitlog-maven-plugin.version}</version>
 						<configuration>
 							<verbose>false</verbose>
-							<reportTitle>Changelog ${project.version}</reportTitle>
+							<reportTitle>Release Notes ${project.version}</reportTitle>
 							<issueManagementSystem>jira</issueManagementSystem>
 							<issueManagementUrl>https://portal.helsana.ch/jira/browse/CONF/</issueManagementUrl>
 							<fullGitMessage>false</fullGitMessage>
 							<mergeCommitFilter>false</mergeCommitFilter>
 							<excludeCommitsPattern>^(?!Merge branch.*).*$</excludeCommitsPattern>
 							<outputDirectory>${gitlogDirectory}</outputDirectory>
-							<asciidocChangeLogFilename>changelog.adoc</asciidocChangeLogFilename>
+							<asciidocChangeLogFilename>releaseNotes.adoc</asciidocChangeLogFilename>
 							<generatAsciidocChangeLog>true</generatAsciidocChangeLog>
 							<generateJSONChangeLog>false</generateJSONChangeLog>
 							<generateHTMLTableOnlyChangeLog>false</generateHTMLTableOnlyChangeLog>
