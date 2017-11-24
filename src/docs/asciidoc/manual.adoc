@@ -20,5 +20,5 @@ include::installation.adoc[]
 
 
 [[changeLog]]
-include::{gitlogdir}/changelog.adoc[]
+include::{gitlogdir}/releaseNotes.adoc[]
 
