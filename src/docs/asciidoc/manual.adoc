@@ -19,6 +19,7 @@ ifndef::testdir[:testdir: ../../test/java]
 include::installation.adoc[]
 
 
-[[changeLog]]
-include::{gitlogdir}/changelog.adoc[]
+= Release Notes
+[[releaseNotes]]
+include::{gitlogdir}/releaseNotes.adoc[leveloffset=+2]
 
