@@ -86,3 +86,8 @@ info:
     name: @project.name@
     description: @project.description@
     version: @project.version@
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true

@@ -45,7 +45,7 @@
 		<asciidoctor-outputDirectory>${project.basedir}/src/main/resources/static/manage/docs</asciidoctor-outputDirectory>
 		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 		<!-- Gitlog-->
-		<gitlog-maven-plugin.version>1.13.4</gitlog-maven-plugin.version>
+		<gitlog-maven-plugin.version>1.13.6</gitlog-maven-plugin.version>
 		<gitlogDirectory>${project.build.directory}/generated-gitlog</gitlogDirectory>
 	</properties>
 
