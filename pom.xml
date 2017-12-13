@@ -150,38 +150,6 @@
 
 	<!-- Profiles -->
 	<profiles>
-		<profile>
-			<id>install-3rdParty</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-install-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>gitlog</id>
-								<phase>clean</phase>
-								<goals>
-									<goal>install-file</goal>
-								</goals>
-								<configuration>
-									<groupId>com.github.danielflower.mavenplugins</groupId>
-									<artifactId>gitlog-maven-plugin</artifactId>
-									<version>${gitlog-maven-plugin.version}</version>
-									<file>${project.basedir}/libs/gitlog-maven-plugin-${gitlog-maven-plugin.version}.jar</file>
-									<pomFile>${project.basedir}/libs/gitlog-maven-plugin-${gitlog-maven-plugin.version}.pom</pomFile>
-									<packaging>jar</packaging>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 		<!-- AsciiDoc-->
 		<profile>
 			<id>asciidoc</id>
