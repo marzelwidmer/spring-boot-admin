@@ -39,7 +39,8 @@ spring:
     flush-interval: 1
     service:
       name: @project.name@
-
+    base-url: http://${server.address}:9411/
+    enabled: true
 # Security
 security:
   user:
@@ -87,7 +88,11 @@ info:
     description: @project.description@
     version: @project.version@
 
+
 eureka:
   client:
     healthcheck:
       enabled: true
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
