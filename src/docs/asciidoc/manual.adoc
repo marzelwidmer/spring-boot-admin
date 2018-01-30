@@ -1,0 +1,25 @@
+= RESTful {project-name} API Guide
+Marcel Widmer <marcel.widmer@helsana.ch>
+:icons: font
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:sectlinks:
+:revnumber: {project-version}
+:revdate: {localdate}
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../main/java]
+ifndef::testdir[:testdir: ../../test/java]
+
+[[overview]]
+= Overview
+
+[installation]
+== Installation
+include::installation.adoc[]
+
+
+= Release Notes
+[[releaseNotes]]
+include::{gitlogdir}/releaseNotes.adoc[leveloffset=+2]
+

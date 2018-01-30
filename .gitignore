@@ -3,6 +3,9 @@ target/
 
 /log/
 /logs/
+src/main/resources/static/
+
+.DS_Store
 
 ### STS ###
 .apt_generated
@@ -26,3 +29,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+\.DS_Store
