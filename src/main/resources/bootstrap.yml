@@ -16,7 +16,6 @@ eureka:
       defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/
   instance:
     hostname: ${SERVER_NAME:localhost}
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: false
     metadata-map:
       instanceId: ${spring.application.name}:${random.int}
