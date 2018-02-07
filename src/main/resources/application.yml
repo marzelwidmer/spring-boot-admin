@@ -39,7 +39,6 @@ spring:
     flush-interval: 1
     service:
       name: @project.name@
-    base-url: http://${server.address}:9411/
     enabled: true
 # Security
 security:
@@ -55,7 +54,6 @@ security:
 server:
   port: 8763
   context-path: /
-  address: localhost
 # Logging
 logging:
   path: log/
