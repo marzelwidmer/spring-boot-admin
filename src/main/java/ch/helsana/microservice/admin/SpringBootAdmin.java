@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 @EnableAutoConfiguration
 @EnableAdminServer
 @EnableGlobalAuthentication
-//@EnableEurekaClient
 @EnableDiscoveryClient
 public class SpringBootAdmin {
 
