@@ -2,20 +2,8 @@
 spring:
   profiles:
     active: default
-  messages:
-    basename: i18n/messages
-    cache-seconds: -1
-    encoding: UTF-8
   application:
     name: @project.name@
-  cloud:
-    config:
-      label: @project.name@
-      discovery:
-        enabled: true
-        service-id: config-server
-      username: user
-      password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
   boot:
     admin:
       discovery:
@@ -26,10 +14,6 @@ spring:
           management-context-path: /manage
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
-  sleuth:
-    enabled: true
-    sampler:
-      percentage: 1.0
   zipkin:
     compression:
       enabled: true
@@ -108,3 +92,20 @@ eureka:
     prefer-ip-address: false
     status-page-url-path: ${management.context-path}/info
     health-check-url-path: ${management.context-path}/health
+
+
+
+## Eureka
+#eureka:
+#  client:
+#    healthcheck:
+#      enabled: true
+#    region: default
+#    registry-fetch-interval-seconds: 10
+#    instance-info-replication-interval-seconds: 10
+#  instance:
+#    leaseRenewalIntervalInSeconds: 10
+#    leaseExpirationDurationInSeconds: 10
+#    prefer-ip-address: false
+#    status-page-url-path: ${management.context-path}/info
+#    health-check-url-path: ${management.context-path}/health
