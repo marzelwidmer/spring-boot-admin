@@ -1,7 +1,7 @@
 # Spring
 spring:
   profiles:
-    active: local
+    active: default
   messages:
     basename: i18n/messages
     cache-seconds: -1
@@ -40,6 +40,7 @@ spring:
     service:
       name: @project.name@
     enabled: true
+
 # Security
 security:
   user:
@@ -50,13 +51,17 @@ security:
       discovery:
         converter:
           management-context-path: /manage
+  ignored: /**
+
 #Server
 server:
   port: 8763
   context-path: /
+
 # Logging
 logging:
   path: log/
+
 # Management
 management:
   context-path: /manage
@@ -65,6 +70,7 @@ management:
        mode: full
   security:
     enabled: false
+
 # Endpoints
 endpoints:
   restart:
@@ -78,6 +84,7 @@ endpoints:
     sensitive: false
   security:
     enabled: true
+
 # Infos
 info:
   build:
@@ -87,10 +94,18 @@ info:
     version: @project.version@
 
 
+## Eureka
 eureka:
   client:
     healthcheck:
       enabled: true
+    region: default
+    registry-fetch-interval-seconds: 10
+    instance-info-replication-interval-seconds: 10
   instance:
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 10
+    prefer-ip-address: false
+    # Random Port Service have to configure the manage context path if not on root
+#    status-page-url-path: ${management.context-path}/info
+#    health-check-url-path: ${management.context-path}/health
