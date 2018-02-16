@@ -106,6 +106,5 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 10
     prefer-ip-address: false
-    # Random Port Service have to configure the manage context path if not on root
-#    status-page-url-path: ${management.context-path}/info
-#    health-check-url-path: ${management.context-path}/health
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
