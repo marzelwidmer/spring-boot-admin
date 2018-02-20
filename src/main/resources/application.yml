@@ -43,6 +43,7 @@ server:
 # Logging
 logging:
   path: log/
+  level.root: error
 
 # Management
 management:
