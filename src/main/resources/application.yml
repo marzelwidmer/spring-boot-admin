@@ -2,6 +2,7 @@
 spring:
   profiles:
     active: default
+    include: infrastructure
   boot:
     admin:
       discovery:
@@ -12,22 +13,9 @@ spring:
           management-context-path: /manage
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
-  zipkin:
-    compression:
-      enabled: true
-    locator:
-      discovery:
-        enabled: true
-    flush-interval: 1
-    service:
-      name: @project.name@
-    enabled: true
 
 # Security
 security:
-  user:
-    username: user
-    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
   boot:
     admin:
       discovery:
@@ -35,58 +23,11 @@ security:
           management-context-path: /manage
   ignored: /**
 
-#Server
-server:
-  port: 8763
-  context-path: /
 
-# Logging
-logging:
-  path: log/
-
-# Management
-management:
-  context-path: /manage
-  info:
-     git:
-       mode: full
-  security:
-    enabled: false
-
-# Endpoints
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    enabled: true
-    sensitive: false
-  logfile:
-    sensitive: false
-  security:
-    enabled: true
-
-# Infos
+# Infos Build
 info:
   build:
     artifact: @project.artifactId@
     name: @project.name@
     description: @project.description@
     version: @project.version@
-
-## Eureka
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    region: default
-    registry-fetch-interval-seconds: 10
-    instance-info-replication-interval-seconds: 10
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    leaseExpirationDurationInSeconds: 10
-    prefer-ip-address: false
-    status-page-url-path: ${management.context-path}/info
-    health-check-url-path: ${management.context-path}/health
-
