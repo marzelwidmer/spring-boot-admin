@@ -1,0 +1,31 @@
+
+# Set a proxy when the runner is in the Helsana network
+before_script:
+  - "[[ $CI_RUNNER_TAGS =~ helsana ]] && export NPM_FLAGS='--strict-ssl=false --proxy=http://webpro-sv:8080/ --https-proxy=http://webpro-sv:8080/'"
+
+
+stages:
+  - Setup
+  - Build
+
+
+# ---------------------
+# Setup stage jobs
+# ---------------------
+
+Setup:
+  stage: Setup
+  script:
+    - git config --global http.proxy http://webpro-sv:8080/
+    - git config --global https.proxy http://webpro-sv:8080/
+    - git config --global http.sslVerify false
+  tags:
+    - helsana
+
+
+Build:
+  stage: Build
+  script:
+    - mvn clean install
+  tags:
+    - helsana
